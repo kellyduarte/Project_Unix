@@ -1,28 +1,23 @@
 echo "[Welcome to Guessing Game]"
 
-function ask_guess {
+function guess_game {
     echo "Please enter the number of files in the currenct directory:"
     read guess
-  files=$(ls -1 | wc -l)
+   files=$(ls -1 | wc -l)
+}
+
+guess_game
 
 while [[ $guess -ne $files ]]
 do
-  if [[ $guess -lt $files ]]
-  then
-  echo "Sorry, too low. Please, try again."
-  echo "Please enter the number of files in the currenct directory:"
-  read guess
-  else
-  echo "Sorry, too high. Please, try again."
-  echo "Please enter the number of files in the currenct directory:"
-  read guess
-  fi
-  ask_guess
-  done
-  echo "Congratulations! Your answer is correct!"
-}
+        if [[ $guess -lt $files ]]
+        then
+             echo "Sorry, too low. Please, try again."
+        else
+            echo "Sorry, too high. Please, try again."
+        fi
+        guess_game
+done
 
-
-echo "Plese enter how many files are in the current directory:"
-read guess
-correct_number=$(ls | wc -l) 
+echo "Congratulations! Your answer is correct!here is the list of files:"
+echo "---" && ls -1
