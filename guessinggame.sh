@@ -4,9 +4,6 @@ function ask_guess {
     echo "Please enter the number of files in the currenct directory:"
     read guess
   files=$(ls -1 | wc -l)
-}
-
-ask_guess
 
 while [[ $guess -ne $files ]]
 do
